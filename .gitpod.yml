@@ -1,0 +1,16 @@
+image:
+  file: .devcontainer/Dockerfile
+
+tasks:
+  - name: Install AWS CLI
+    init: |
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+        && unzip -q awscliv2.zip \
+        && sudo ./aws/install \
+        && rm -rf awscliv2.zip aws/
+    command: aws --version
+
+vscode:
+  extensions:
+    - amazonwebservices.aws-toolkit-vscode
+    - redhat.vscode-yaml

@@ -1,0 +1,12 @@
+tasks:
+  install-aws-cli:
+    name: Install AWS CLI
+    description: Install the AWS CLI v2 and verify the installation.
+    command: |
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+        && unzip -q awscliv2.zip \
+        && sudo ./aws/install --update \
+        && rm -rf awscliv2.zip aws/ \
+        && aws --version
+    triggeredBy:
+      - postDevcontainerStart
